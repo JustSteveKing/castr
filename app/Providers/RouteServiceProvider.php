@@ -27,13 +27,7 @@ class RouteServiceProvider extends ServiceProvider
             // Static application routes; all public pages.
             Route::middleware('web')->as('static:')->group(base_path('routes/static.php'));
 
-            // Route::middleware(
-            //     middleware: 'web',
-            // )->group(
-            //     callback: base_path(
-            //         path: 'routes/web.php',
-            //     ),
-            // );
+            Route::middleware('web')->group(base_path('routes/web.php'));
         });
     }
 
