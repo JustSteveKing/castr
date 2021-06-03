@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Castr\Domains\Catalog\Jobs;
 
+use RuntimeException;
 use Illuminate\Bus\Queueable;
-use shweshi\OpenGraph\OpenGraph;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
@@ -13,7 +13,6 @@ use Castr\Domains\Catalog\Models\Podcast;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Contracts\Queue\ShouldBeUnique;
-use RuntimeException;
 
 class FetchPodcastItems implements ShouldQueue
 {
