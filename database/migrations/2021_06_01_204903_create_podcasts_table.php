@@ -24,7 +24,7 @@ class CreatePodcastsTable extends Migration
             $table->json('owner')->nullable();
 
             $table->foreignId('user_id');
-            $table->foreignId('category_id');
+            $table->foreignId('category_id')->nullable();
 
             $table->timestamps();
             $table->softDeletes();
