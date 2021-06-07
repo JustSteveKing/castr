@@ -1,0 +1,31 @@
+<?php
+
+declare(strict_types=1);
+
+namespace {{ namespace }};
+
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+
+class {{ class }} extends Model
+{
+    use HasFactory;
+
+    protected $fillable = [];
+
+    protected $casts = [];
+
+    // Methods
+
+    // Accessors
+
+    // Relationships
+
+    public function newEloquentBuilder($query): Builder
+    {
+        return new Builder(
+            query: $query,
+        );
+    }
+}

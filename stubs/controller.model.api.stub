@@ -1,0 +1,43 @@
+<?php
+
+declare(strict_types=1);
+
+namespace {{ namespace }};
+
+use {{ namespacedModel }};
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use {{ rootNamespace }}Http\Controllers\Controller;
+
+class {{ class }} extends Controller
+{
+    public function index(): Response
+    {
+        //
+    }
+
+    public function store(Request $request): Response
+    {
+        //
+    }
+
+    public function show({{ model }} ${{ modelVariable }}): Response
+    {
+        //
+    }
+
+    public function update(Request $request, {{ model }} ${{ modelVariable }}): Response
+    {
+        //
+    }
+
+    public function destroy({{ model }} ${{ modelVariable }}): Response
+    {
+        ${{ model->modelVariable }}->delete();
+
+        return response(
+            data: null,
+            status: 204,
+        );
+    }
+}

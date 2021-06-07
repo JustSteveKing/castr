@@ -10,6 +10,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             DefaultUsersSeeder::class,
+            FeedSeeder::class,
         ]);
     }
 }

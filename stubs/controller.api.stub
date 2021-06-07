@@ -1,0 +1,37 @@
+<?php
+
+declare(strict_types=1);
+
+namespace {{ namespace }};
+
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use {{ rootNamespace }}Http\Controllers\Controller;
+
+class {{ class }} extends Controller
+{
+    public function index(): Response
+    {
+        //
+    }
+
+    public function store(Request $request): Response
+    {
+        //
+    }
+
+    public function show(int $id): Response
+    {
+        //
+    }
+
+    public function update(Request $request, int $id): Response
+    {
+        //
+    }
+
+    public function destroy(int $id): Response
+    {
+        //
+    }
+}
