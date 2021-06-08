@@ -4,7 +4,6 @@ namespace App\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
-use Castr\Domains\Catalog\Console\Commands\FetchPodcastFeed;
 
 class Kernel extends ConsoleKernel
 {
@@ -13,9 +12,7 @@ class Kernel extends ConsoleKernel
      *
      * @var array
      */
-    protected $commands = [
-        FetchPodcastFeed::class,
-    ];
+    protected $commands = [];
 
     /**
      * Define the application's command schedule.

@@ -16,6 +16,14 @@ class EpisodeBuilder extends Builder
         );
     }
 
+    public function external(string $id): self
+    {
+        return $this->where(
+            column: 'external_id',
+            value: $id,
+        );
+    }
+
     public function archived(bool $archived = true): self
     {
         return $this->where(

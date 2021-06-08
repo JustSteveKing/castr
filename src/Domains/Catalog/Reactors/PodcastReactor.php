@@ -6,10 +6,12 @@ namespace Castr\Domains\Catalog\Reactors;
 
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Castr\Domains\Catalog\Events\PodcastCreated;
+use Castr\Domains\Catalog\Events\PodcastWasSynced;
 use Castr\Domains\Catalog\Jobs\ProcessPodcastFeed;
+use Castr\Domains\Catalog\Jobs\SyncPodcastEpisode;
 use Spatie\EventSourcing\EventHandlers\Reactors\Reactor;
 
-class FetchPodcastMeta extends Reactor implements ShouldQueue
+class PodcastReactor extends Reactor implements ShouldQueue
 {
     public function onPodcastCreated(
         PodcastCreated $event,
@@ -18,6 +20,15 @@ class FetchPodcastMeta extends Reactor implements ShouldQueue
         ProcessPodcastFeed::dispatch(
             $aggregateUuid,
             $event->dto->feedURL,
+        );
+    }
+
+    public function onPodcastWasSynced(
+        PodcastWasSynced $event,
+    ): void {
+        SyncPodcastEpisode::dispatch(
+            $event->podcast->id,
+            $event->podcast->feed_url,
         );
     }
 }
