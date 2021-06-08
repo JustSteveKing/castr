@@ -15,7 +15,6 @@ class PodcastFactory
             generator: $attributes['generator'],
             description: $attributes['description'],
             copyright: $attributes['copyright'],
-            owner: $attributes['owner'],
             language: $attributes['language'],
             externalURL: $attributes['external_url'],
             feedURL: $attributes['feed_url'],

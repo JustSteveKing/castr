@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Castr\Domains\Catalog\Models;
 
+use Castr\Domains\Catalog\Models\Concerns\HasUuid;
 use Castr\Domains\Shared\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -13,6 +14,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Podcast extends Model
 {
+    use HasUuid;
     use SoftDeletes;
 
     protected $fillable = [
@@ -26,20 +28,13 @@ class Podcast extends Model
         'external_url',
         'feed_url',
         'image',
-        'owner',
         'user_id',
         'category_id',
     ];
 
     protected $cast = [
         'image' => AsArrayObject::class,
-        'owner' => AsArrayObject::class,
     ];
-
-    public static function uuid(string $uuid): Podcast|null
-    {
-        return static::where('uuid', $uuid)->first();
-    }
 
     public function owner(): BelongsTo
     {

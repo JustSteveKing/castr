@@ -19,8 +19,6 @@ class PodcastProjector extends Projector
             'title' => $event->dto->title,
             'generator' => $event->dto->generator,
             'description' => $event->dto->description,
-            'owner' => $event->dto->owner,
-            'author' => $event->dto->owner,
             'copyright' => $event->dto->copyright,
             'language' => $event->dto->language,
             'external_url' => $event->dto->externalURL,

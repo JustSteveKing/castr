@@ -11,7 +11,6 @@ class Podcast
         public string $generator,
         public string $description,
         public string $copyright,
-        public string $owner,
         public string $language,
         public string $externalURL,
         public string $feedURL,

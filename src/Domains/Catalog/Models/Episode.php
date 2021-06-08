@@ -4,12 +4,16 @@ declare(strict_types=1);
 
 namespace Castr\Domains\Catalog\Models;
 
-use Illuminate\Database\Eloquent\Casts\AsArrayObject;
+use Castr\Domains\Catalog\Models\Builders\EpisodeBuilder;
 use Illuminate\Database\Eloquent\Model;
+use Castr\Domains\Catalog\Models\Concerns\HasUuid;
+use Illuminate\Database\Eloquent\Casts\AsArrayObject;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Episode extends Model
 {
+    use HasUuid;
+    
     protected $fillable = [
         'uuid',
         'title',
@@ -34,6 +38,13 @@ class Episode extends Model
         return $this->belongsTo(
             related: Podcast::class,
             foreignKey: 'podcast_id',
+        );
+    }
+
+    public function newEloquentBuilder($query): EpisodeBuilder
+    {
+        return new EpisodeBuilder(
+            query: $query,
         );
     }
 }

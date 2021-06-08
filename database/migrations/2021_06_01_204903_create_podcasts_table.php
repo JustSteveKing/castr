@@ -15,13 +15,12 @@ class CreatePodcastsTable extends Migration
             $table->string('title');
             $table->string('generator')->nullable();
             $table->text('description')->nullable();
-            $table->string('author');
+            $table->string('author')->nullable();
             $table->string('copyright')->nullable();
             $table->string('language');
             $table->string('external_url');
             $table->string('feed_url');
             $table->json('image')->nullable();
-            $table->json('owner')->nullable();
 
             $table->foreignId('user_id');
             $table->foreignId('category_id')->nullable();

@@ -4,18 +4,34 @@ declare(strict_types=1);
 
 namespace Database\Seeders;
 
+use Ramsey\Uuid\Uuid;
 use Illuminate\Database\Seeder;
+use Castr\Domains\Catalog\Aggregates\PodcastAggregateRoot;
+use Castr\Domains\Catalog\Factories\PodcastFactory;
+use Castr\Domains\Shared\Models\User;
 
 class FeedSeeder extends Seeder
 {
     public function run(): void
     {
-        $feed = (array) simplexml_load_file(__DIR__ . '/../data/PHPUgly.xml');
+        $uuid = Uuid::uuid4()->toString();
 
-        $channel = (array) $feed['channel'];
-        $image = (array) $channel['image'];
-
-        dd($image);
-        dd($channel);
+        PodcastAggregateRoot::retrieve(
+            uuid: $uuid,
+        )->createPodcast(
+            podcast: PodcastFactory::build(
+                attributes: [
+                    'title' => 'PHPUgly',
+                    'generator' => 'simplecasts',
+                    'description' => 'This is PHPUgly podcast',
+                    'copyright' => 'PHPUgly',
+                    'author' => 'PHPUgly',
+                    'language' => 'en-US',
+                    'external_url' => 'http://www.phpugly.com',
+                    'feed_url' => 'https://feeds.simplecast.com/iYRiH9ym',
+                ]
+            ),
+            userID: User::first()->id,
+        );
     }
 }
