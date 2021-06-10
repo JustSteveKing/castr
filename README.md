@@ -6,7 +6,7 @@
 - GET /podcasts
 - POST /podcasts
 - GET /podcasts/{podcast}
-- PATCH /podcasts/{podcast}
+- PATCH /podcasts/{podcast} - not needed.
 - DELETE /podcasts/{podcast}
 - GET /podcasts/{podcast}/subscribers ??? audience ...
 - GET /podcasts/{podcasts}/followers ???

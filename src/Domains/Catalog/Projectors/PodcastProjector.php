@@ -6,6 +6,7 @@ namespace Castr\Domains\Catalog\Projectors;
 
 use Castr\Domains\Catalog\Models\Podcast;
 use Castr\Domains\Catalog\Events\PodcastCreated;
+use Castr\Domains\Catalog\Events\PodcastWasDeleted;
 use Spatie\EventSourcing\EventHandlers\Projectors\Projector;
 
 class PodcastProjector extends Projector
@@ -17,13 +18,14 @@ class PodcastProjector extends Projector
         Podcast::create([
             'uuid' => $aggregateUuid,
             'title' => $event->dto->title,
-            'generator' => $event->dto->generator,
-            'description' => $event->dto->description,
-            'copyright' => $event->dto->copyright,
-            'language' => $event->dto->language,
-            'external_url' => $event->dto->externalURL,
             'feed_url' => $event->dto->feedURL,
             'user_id' => $event->user,
         ]);
+    }
+
+    public function onPodcastWasDeleted(
+        PodcastWasDeleted $event,
+    ): void {
+        $event->podcast->delete();
     }
 }

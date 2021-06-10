@@ -1,0 +1,132 @@
+{
+	"info": {
+		"_postman_id": "ebca791c-33b6-4b9a-beec-4b33d8c96926",
+		"name": "Castr Application",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Podcasts",
+			"item": [
+				{
+					"name": "List all Podcasts - V1",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/castr.api+json",
+								"description": "Accept JSON:API specified application/json content",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/podcasts",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"podcasts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show a specific Podcast",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/vnd.api+json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/podcasts/c4d290a7-b48d-445a-9384-1e2b7f9d1fe9?include=owner",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"podcasts",
+								"c4d290a7-b48d-445a-9384-1e2b7f9d1fe9"
+							],
+							"query": [
+								{
+									"key": "include",
+									"value": "owner"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a new podcast",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/vnd.api+json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"No Plans To Merge Podcast\",\n    \"feed_url\": \"https://feeds.simplecast.com/tjCffbY2\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/podcasts",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"podcasts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a podcast",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/vnd.api+json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/podcasts/7459c17e-64b4-4f4c-a265-362c7172d2a1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"podcasts",
+								"7459c17e-64b4-4f4c-a265-362c7172d2a1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

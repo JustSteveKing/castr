@@ -8,33 +8,26 @@ use Illuminate\Http\Response;
 use JustSteveKing\StatusCode\Http;
 use App\Http\Controllers\Controller;
 use Spatie\QueryBuilder\QueryBuilder;
-use Spatie\QueryBuilder\AllowedFilter;
 use Castr\Domains\Catalog\Models\Podcast;
 use App\Http\Resources\V1\PodcastResource;
 
-class IndexController extends Controller
+class ShowController extends Controller
 {
-    public function __invoke(): Response
+    public function __invoke(string $uuid): Response
     {
-        $podcasts = QueryBuilder::for(
+        $podcast = QueryBuilder::for(
             subject: Podcast::class,
-        )->allowedFilters(
-            filters: [
-                'title',
-                AllowedFilter::exact(
-                    name: 'language',
-                ),
-            ]
         )->allowedIncludes(
             includes: [
                 'category',
+                'owner',
                 'episodes',
-            ]
-        )->get();
+            ],
+        )->where('uuid', $uuid)->firstOrFail();
 
         return new Response(
-            content: PodcastResource::collection(
-                resource: $podcasts,
+            content: new PodcastResource(
+                resource: $podcast,
             ),
             status: Http::OK,
         );

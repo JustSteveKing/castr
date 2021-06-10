@@ -22,12 +22,6 @@ class FeedSeeder extends Seeder
             podcast: PodcastFactory::build(
                 attributes: [
                     'title' => 'PHPUgly',
-                    'generator' => 'simplecasts',
-                    'description' => 'This is PHPUgly podcast',
-                    'copyright' => 'PHPUgly',
-                    'author' => 'PHPUgly',
-                    'language' => 'en-US',
-                    'external_url' => 'http://www.phpugly.com',
                     'feed_url' => 'https://feeds.simplecast.com/iYRiH9ym',
                 ]
             ),

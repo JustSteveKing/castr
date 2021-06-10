@@ -17,8 +17,8 @@ class CreatePodcastsTable extends Migration
             $table->text('description')->nullable();
             $table->string('author')->nullable();
             $table->string('copyright')->nullable();
-            $table->string('language');
-            $table->string('external_url');
+            $table->string('language')->nullable();
+            $table->string('external_url')->nullable();
             $table->string('feed_url');
             $table->json('image')->nullable();
 

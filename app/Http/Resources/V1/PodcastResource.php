@@ -18,6 +18,7 @@ class PodcastResource extends JsonResource
                 'copyright' => $this->copyright,
                 'description' => $this->description,
                 'image' => json_decode($this->image),
+                'language' => $this->language,
                 'created' => [
                     'human' => $this->created_at->diffForHumans(),
                     'date' => $this->created_at->toDateString(),
@@ -34,8 +35,15 @@ class PodcastResource extends JsonResource
                         relationship: 'episodes',
                     ),
                 ),
+                'owner' => new UserResource(
+                    resource: $this->whenLoaded(
+                        relationship: 'owner',
+                    ),
+                ),
             ],
-            'links' => [],
+            'links' => [
+                'self' => route('api:podcasts:show', $this->uuid),
+            ],
         ];
     }
 }

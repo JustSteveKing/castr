@@ -12,11 +12,6 @@ class PodcastFactory
     {
         return new Podcast(
             title: $attributes['title'],
-            generator: $attributes['generator'],
-            description: $attributes['description'],
-            copyright: $attributes['copyright'],
-            language: $attributes['language'],
-            externalURL: $attributes['external_url'],
             feedURL: $attributes['feed_url'],
         );
     }

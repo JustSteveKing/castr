@@ -8,11 +8,6 @@ class Podcast
 {
     public function __construct(
         public string $title,
-        public string $generator,
-        public string $description,
-        public string $copyright,
-        public string $language,
-        public string $externalURL,
         public string $feedURL,
     ) {}
 }
