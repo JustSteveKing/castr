@@ -11,6 +11,7 @@
         "guzzlehttp/guzzle": "^7.0.1",
         "http-interop/http-factory-guzzle": "^1.0",
         "inertiajs/inertia-laravel": "^0.3.5",
+        "juststeveking/http-status-code": "^2.0",
         "laminas/laminas-feed": "^2.14",
         "laminas/laminas-http": "^2.14",
         "laravel/framework": "^8.40",
@@ -20,6 +21,7 @@
         "laravel/tinker": "^2.5",
         "meilisearch/meilisearch-php": "^0.18.2",
         "spatie/laravel-event-sourcing": "^4.10",
+        "spatie/laravel-query-builder": "^3.4",
         "tightenco/ziggy": "^1.0"
     },
     "require-dev": {

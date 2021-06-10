@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace Castr\Domains\Catalog\Models;
 
-use Castr\Domains\Catalog\Models\Concerns\HasUuid;
 use Castr\Domains\Shared\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Castr\Domains\Catalog\Models\Concerns\HasUuid;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Casts\AsArrayObject;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Podcast extends Model
 {

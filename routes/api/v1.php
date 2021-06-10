@@ -1,8 +1,19 @@
 <?php
 
-use Illuminate\Http\Request;
+declare(strict_types=1);
+
 use Illuminate\Support\Facades\Route;
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+/**
+ * Podcast Routes
+ */
+Route::prefix('podcasts')->as('podcasts:')->group(function () {
+
+    /**
+     * List Podcasts
+     */
+    Route::get(
+        '/',
+        \App\Http\Controllers\Api\V1\Podcasts\IndexController::class,
+    )->name('index');
 });

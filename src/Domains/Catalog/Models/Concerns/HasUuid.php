@@ -12,4 +12,9 @@ trait HasUuid
     {
         return static::where('uuid', $uuid)->first();
     }
+
+    public function getRouteKeyName(): string
+    {
+        return 'uuid';
+    }
 }
